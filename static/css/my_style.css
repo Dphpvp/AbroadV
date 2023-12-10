@@ -1,0 +1,127 @@
+.body {
+  background-color: #e0e0e0;
+  background-image: url('static/images/background.png');
+  background-size: cover;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+    background-color: transparent;
+
+}
+
+.home-description {
+    text-align: center;
+    padding: 50px;
+    background-color: transparent;
+}
+
+.home-description h1 {
+    color: #343a40;
+    position: absolute;
+    justify-content: center;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.feature {
+    text-align: center;
+    max-width: 250px;
+}
+
+.feature i {
+    font-size: 36px;
+    color: #343a40;
+}
+
+.feature h2 {
+    color: #343a40;
+}
+
+.tips-tricks {
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  background-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tips-tricks h2 {
+    color: #343a40;
+}
+
+.body {
+  background-image: url('static/images/background.png');
+  background-size: cover;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+/* WEATHER STYLES ONLY */
+
+.container {
+    max-width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.weather-api {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    max-width: 250px;
+    max-height: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+    font-size: 20px;
+    color: blue;
+}
+
+input[type="text"] {
+    width: 90%;
+    background-color: transparent;
+    padding: 3px;
+    margin: 5px 5px;
+    border: 1px solid #f8f9fa; /* Change border style to solid with a small width */
+    border-radius: 5px;
+    outline: none; /* Remove the default focus outline */
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 8px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.weather-info {
+    margin-top: 10px;
+}
+
+/* WEATHER STYLES  END  */

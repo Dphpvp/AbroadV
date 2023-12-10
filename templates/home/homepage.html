@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+
+    <link rel="stylesheet" href="{% static 'css/my_style.css' %}" xmlns="http://www.w3.org/1999/html">
+    <div class="home-description">
+
+
+        <h1>Welcome to Abroad Voyager!</h1>
+        <p>Plan your dream travel with ease. Explore, discover, and make memories.</p>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-map"></i>
+                <h2>Plan Your Travel</h2>
+                <p>Create personalized travel itineraries for your dream destinations.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-exchange-alt"></i>
+                <h2>Exchange Rates</h2>
+                <p>View real-time exchange rates for different countries to make informed decisions.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-plane"></i>
+                <h2>Book Tickets</h2>
+                <p>Book flights to your favorite destinations hassle-free.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-hotel"></i>
+                <h2>Book Hotels</h2>
+                <p>Find and reserve accommodations that suit your preferences and budget.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-car"></i>
+                <h2>Rent a Car</h2>
+                <p>Explore your destination with the convenience of a rented vehicle.</p>
+            </div>
+        </div>
+        <div class="tips-tricks">
+            <h4>Tips and Tricks</h4>
+            <p>Discover insider tips for a smooth and enjoyable travel experience.</p>
+        </div>
+    </div>
+
+    <!-- Weather API Display -->
+    <div class="weather-api">
+        <div class="container">
+        <h1> Weather Info</h1>
+        <input type="text" id="locationInput" placeholder="Enter a city">
+        <button id="searchButton">Search</button>
+        <div class="weather-info">
+            <h2 id="location"></h2>
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+
+    </div>
+    <script function getWeather()  src= {% static 'js/script.js' %}></script>
+    </div>
+
+{% endblock %}

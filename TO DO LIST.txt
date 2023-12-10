@@ -1,0 +1,6 @@
+1 - fix home page with css to final - add card view better
+2 - fix about us page
+3 - create the my account and log in pages
+4 - create the notes tab login view only
+5 - create the travel save in login view only
+6 - search tied to ChatGPT and sugestive searches
