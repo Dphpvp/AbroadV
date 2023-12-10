@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'about',
     'user',
     'userextend',
+    'notes',
 ]
 
 MIDDLEWARE = [

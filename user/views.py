@@ -9,8 +9,8 @@ from user.models import User
 class UserCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     template_name = 'user/create_user.html'
     model = User
-    form_class = UserForm  # in formular vor fi toate campurile
-    success_url = reverse_lazy('home')
+    form_class = UserForm
+    success_url = reverse_lazy('login')
     permission_required = 'user.add_user'
 
 
@@ -25,7 +25,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'user/update_user.html'
     model = User
     form_class = UserUpdateForm
-    success_url = reverse_lazy('details-user')
+    success_url = reverse_lazy('account-details')
 
 
 class UserDeleteView(LoginRequiredMixin, DeleteView):
@@ -35,5 +35,6 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
 
 
 class UserDetailView(LoginRequiredMixin, DetailView):
-    template_name = 'user/details_user.html'
+    template_name = 'user/account_details.html'
     model = User
+

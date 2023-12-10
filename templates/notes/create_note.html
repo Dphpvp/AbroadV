@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
 
-{% block title %} Update users {% endblock %}
+{% block title %}  Submit notes {% endblock %}
 
 {% block content %}
+
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-4 offset-md-4">
                 <br><br>
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">Update users</h3>
+                        <h3 class="text-center"> Submit notes</h3>
                     </div>
-                    <form method="post" enctype="multipart/form-data">
+                    <form method="post">
                         {% csrf_token %}
+
                         <div class="card-body">
                             {{ form.as_p }}
                         </div>
                         <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-outline-success">Update info</button>
-                            <a href="{% url 'list-of-user' %}" class="btn btn-outline-secondary">Cancel</a>
+                            <button class="btn btn-outline-success" type="submit">Save</button>
                         </div>
                     </form>
                 </div>

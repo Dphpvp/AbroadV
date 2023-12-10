@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Users Notes {% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <br><br>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center"> User Notes</h3>
+                    </div>
+                    <div class="card-body">
+                        {% if notes %}
+                            <ul class="list-group">
+                                {% for notes in all_notes %}
+                                    <li class="list-group-item">
+                                        <strong>{{ notes.name }}</strong>: {{ notes.comment }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="text-center">No Notes yet.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
