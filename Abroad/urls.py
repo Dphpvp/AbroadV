@@ -28,6 +28,7 @@ urlpatterns = [
     path('about/', include('about.urls')),
     path("login/", views.LoginView.as_view(form_class=AuthenticationNewForm), name="login"),
     path('', include('django.contrib.auth.urls')),
+    path('', include('user.urls')),
     path('', include('userextend.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}  List of users {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Profile</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Active</th>
+                        <th>Gender</th>
+                        <th>Created at</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in all_users %}
+                        <tr>
+                            <td>
+                                {% if user.profile %}
+                                    <img src="{{ user.profile.url }}" width="60" height="60" alt="profile">
+                                {% else %}
+                                    <img src="{% static 'images/logo2.png' %}" width="60" height="60"
+                                         alt="default image"
+                                {% endif %}
+                            </td>
+                            <td>{{ user.first_name }}</td>
+                            <td>{{ user.last_name }}</td>
+                            <td>{{ user.age }}</td>
+                            <td>{{ user.start_date|date:"d-M-Y" }}</td>
+                            <td> {% if user.active %}
+                                Yes
+                            {% else %}
+                                No
+                            {% endif %}
+                            </td>
+                            <td>{{ user.gender|title }}</td>
+                            {# sau UPPER, lower #}
+                            <td>{{ student.created_at|date:"d-M-Y H:i:s" }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                        more actions
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'update-user' user.id %}">Update</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'delete-user' user.id %}">Delete</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'details-user' user.id %}">View details</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

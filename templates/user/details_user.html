@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} View account details {% endblock %}
+
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <br><br>
+                <div class="card text-center">
+                    <div class="card-header">
+                       View details
+                    </div>
+                    <div class="card-body">
+
+                        {% if user.profile %}
+                            <img src="{{ user.profile.url }}" class="rounded" width="100" height="100" alt="Profile pic">
+                        {% else %}
+                          <img src="{% static 'images/logo2.png' %}" class="rounded" width="100" height="100" alt="Profile pic">
+
+                        {% endif %}
+
+                        <h5 class="card-title">{{ User }}</h5>
+                        <p class="card-text">Email: {{ user.email }}</p>
+                        <a href="{% url 'list-of-user' %}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                      Created at: {{ user.created_at|date:'d-m-Y H:i:s' }} /  Updated at: {{ user.updated_at|date:"d-m-Y H:i:s" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

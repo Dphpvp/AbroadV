@@ -20,8 +20,5 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     profile = models.ImageField(upload_to='profiles/', null=True)
 
-    # auto_now_add = True folosit pt a va stoca data si ora in momentul in care s-a creat userul
-    # auto_now = True folosit pt orice modificare sa salveze data si ora cand s-a modificat userul
-
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
