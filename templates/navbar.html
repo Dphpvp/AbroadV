@@ -1,7 +1,8 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary" style="border-bottom: 2px solid #000;">
     <div class="container-fluid">
-        <a class="navbar-brand" href=" {% url 'home' %} " style="color: #000;"><img src="{% static 'images/logo2.png' %}" alt="Logo"></a>
+        <a class="navbar-brand" href=" {% url 'home' %} " style="color: #000;"><img
+                src="{% static 'images/logo2.png' %}" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,12 +13,6 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}" style="color: #000;">Home</a>
                 </li>
                 {% if user.is_authenticated %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false" style="color: #000;">
-                            About us
-                        </a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false" style="color: #000;">
@@ -35,28 +30,38 @@
                            aria-expanded="false" style="color: #000;">
                             Notes
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'create_notes' %}" style="color: #000;">Create a
-                                new note</a></li>
-                            <li><a class="dropdown-item" href="{% url 'list_of_notes' %}" style="color: #000;">List of
-                                notes</a></li>
-                        </ul>
                     </li>
-
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'create_notes' %}" style="color: #000;">Create a
+                            new note</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list_of_notes' %}" style="color: #000;">List of
+                            notes</a></li>
                     </ul>
-
-
+                    </li>
+                    </ul>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'about' %}"
+                               style="color: #000;">About Us</a>
+                        </li>
+                    </ul>
                     <div>
                         <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout {{ user.username }}</a>
                     </div>
                 {% else %}
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'about' %}"
+                               style="color: #000;">About Us</a>
+                        </li>
+                    </ul>
                     <div>
                         <a href="{% url 'login' %}" class="btn btn-dark" style="color: #fff;">Login</a>
                         <a href="{% url 'create-user' %}" class="btn btn-dark" style="color: #fff;">Sign Up</a>
                     </div>
                 {% endif %}
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search here noob" aria-label="Search">
+                <input class="form-control me-4" type="search" placeholder="Search here" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit" style="color: #000; border: 1px solid #000;">
                     Search
                 </button>
