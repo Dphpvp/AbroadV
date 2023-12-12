@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{Swiper, font-awesome, jquery-3.5.1.slim, scrollReveal.js}" />
+    <file url="file://$PROJECT_DIR$" libraries="{Swiper, boxicons, scrollReveal.js}" />
   </component>
 </project>
