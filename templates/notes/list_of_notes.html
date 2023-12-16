@@ -1,33 +1,80 @@
 {% extends 'finalbase.html' %}
 
-{% block title %} Users Notes {% endblock %}
+{% block title %}  Submit notes {% endblock %}
 
 {% block content %}
+<title>Item List</title>
+    <style>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <br><br>
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center"> User Notes</h3>
-                    </div>
-                    <div class="card-body">
-                        {% if notes %}
-                            <ul class="list-group">
-                                {% for notes in all_notes %}
-                                    <li class="list-group-item">
-                                        <strong>{{ notes.name }}</strong>: {{ notes.comment }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
-                            <p class="text-center">No Notes yet.</p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #itemInput {
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        #itemList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .list-item {
+            margin-bottom: 5px;
+        }
+
+        .delete-btn {
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+<body>
+
+<h2>Item List</h2>
+
+<form id="addItemForm">
+    <label for="itemInput">Add Item:</label>
+    <input type="text" id="itemInput" name="item" required>
+    <button type="button" onclick="addItem()">Add</button>
+</form>
+
+<ul id="itemList"></ul>
+
+<script>
+    function addItem() {
+        // Get the input value
+        var newItem = document.getElementById("itemInput").value.trim();
+
+        // Check if the input is not empty
+        if (newItem !== "") {
+            // Create a new list item
+            var li = document.createElement("li");
+            li.className = "list-item";
+            li.innerHTML = newItem;
+
+            // Create a delete button for the list item
+            var deleteBtn = document.createElement("span");
+            deleteBtn.className = "delete-btn";
+            deleteBtn.innerHTML = "❌";
+            deleteBtn.onclick = function () {
+                li.remove();
+            };
+
+            // Append the delete button to the list item
+            li.appendChild(deleteBtn);
+
+            // Append the list item to the item list
+            document.getElementById("itemList").appendChild(li);
+
+            // Clear the input field
+            document.getElementById("itemInput").value = "";
+        }
+    }
+</script>
+
+</body>
 
 {% endblock %}

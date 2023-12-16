@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.template import context
+from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
@@ -7,7 +9,7 @@ from user.models import User
 
 
 class UserCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
-    template_name = 'user/create_user.html'
+    template_name = 'userextend/create_user2.html'
     model = User
     form_class = UserForm
     success_url = reverse_lazy('login')
@@ -38,3 +40,6 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     template_name = 'user/account_details.html'
     model = User
 
+
+def account_view():
+    return render(request, 'user/account_details.html', context)

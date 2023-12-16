@@ -3,27 +3,78 @@
 {% block title %}  Submit notes {% endblock %}
 
 {% block content %}
+<title>Item List</title>
+    <style>
+        /* Optional: Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4 offset-md-4">
-                <br><br>
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center"> Submit notes</h3>
-                    </div>
-                    <form method="post">
-                        {% csrf_token %}
+        #itemInput {
+            width: 200px;
+            margin-right: 10px;
+        }
 
-                        <div class="card-body">
-                            {{ form.as_p }}
-                        </div>
-                        <div class="card-footer text-center">
-                            <button class="btn btn-outline-success" type="submit">Save</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+        #itemList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .list-item {
+            margin-bottom: 5px;
+        }
+
+        .delete-btn {
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+<body>
+
+<h2>Item List</h2>
+
+<form id="addItemForm">
+    <label for="itemInput">Add Item:</label>
+    <input type="text" id="itemInput" name="item" required>
+    <button type="button" onclick="addItem()">Add</button>
+</form>
+
+<ul id="itemList"></ul>
+
+<script>
+    function addItem() {
+        // Get the input value
+        var newItem = document.getElementById("itemInput").value.trim();
+
+        // Check if the input is not empty
+        if (newItem !== "") {
+            // Create a new list item
+            var li = document.createElement("li");
+            li.className = "list-item";
+            li.innerHTML = newItem;
+
+            // Create a delete button for the list item
+            var deleteBtn = document.createElement("span");
+            deleteBtn.className = "delete-btn";
+            deleteBtn.innerHTML = "❌";
+            deleteBtn.onclick = function () {
+                li.remove();
+            };
+
+            // Append the delete button to the list item
+            li.appendChild(deleteBtn);
+
+            // Append the list item to the item list
+            document.getElementById("itemList").appendChild(li);
+
+            // Clear the input field
+            document.getElementById("itemInput").value = "";
+        }
+    }
+</script>
+
+</body>
+
 {% endblock %}
