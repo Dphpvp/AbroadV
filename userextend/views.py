@@ -13,7 +13,7 @@ from userextend.forms import UserForm
 
 
 class UserCreateView(CreateView):
-    template_name = 'userextend/create_user.html'
+    template_name = 'userextend/create_user2.html'
     model = User
     form_class = UserForm
     success_url = reverse_lazy('login')

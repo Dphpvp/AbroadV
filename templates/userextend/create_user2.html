@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- ======== Favicon ======= -->
+    <link rel="shortcut icon" href="{% static 'images/images-2/favicon.ico' %}" type="image/x-icon"/>
+    <!-- ======== Boxicons ======= -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet"/>
+    <!-- ======== Slider Js ======= -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.css"/>
+    <!-- ======== StyleSheet ======= -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+
+    <title>Abroad Voyager</title>
+<style>
+    .card {
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 20px;
+        margin: auto;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black; /* Set the text color to black */
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black;
+        font-size: 16px; /* Example paragraph font size */
+        line-height: 1.5; /* Example paragraph line height */
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: center;
+    }
+
+   p {
+       color: black;
+       font-weight: bold;
+       font-family: "Montserrat", sans-serif;
+       font-size: 14px;
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(300px, 2fr)); /* Adjust the column width and minimum size as per your requirement */
+       gap: 5px; /* Adjust the gap between grid items as per your requirement */
+       justify-items: center; /* Align grid items horizontally in the center */
+       align-items: center; /* Align grid items vertically in the center */
+   }
+</style>
+</head>
+<body>
+<!-- header -->
+<header class="header" id="header">
+    <!-- Navigation -->
+    <div class="navigation">
+        <nav class="nav d-flex" style="height: 10rem">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img src=" {% static 'images/images-2/logo34.png' %}" alt="No Logo"
+                         style="height: 20rem; width: 20rem;"/>
+                </a>
+            </div>
+            <ul class="nav-list d-flex">
+                <li class="nav-item">
+                    <a href="#header" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'account_details' %}" class="nav-link">My Account</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#service" class="nav-link">Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#trips" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <a href="{% url 'create-user' %}" class="btn sign-up">Sign Up</a>
+            <a href="{% url 'login' %}" class="btn sign-up">Login</a>
+
+            <div class="hamburger">
+                <i class="bx bx-menu-alt-left"></i>
+            </div>
+        </nav>
+    </div>
+
+   <!-- Hero -->
+    <div class="swiper-container slider-1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src=" {% static 'images/images-2/pic-1.jpg' %}" alt=""/>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="{% static 'images/images-2/pic-5.jpg' %}" alt="hero image"/>
+            </div>
+            <div class="swiper-slide">
+                <video muted loop autoplay>
+                    <source src="{% static 'media/video-2.mp4' %}" type="video/mp4"/>
+                    <source src="{% static 'media/video-2.webm' %}" type="video/webm"/>
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <img src=" {% static 'images/images-2/pic-6.jpg' %}" alt="hero image"/>
+            </div>
+
+            <div class="swiper-slide">
+                <video muted loop autoplay>
+                    <source src="{% static 'media/video-3.mp4' %}" type="video/mp4"/>
+                    <source src="{% static 'media/video-3.webm' %}" type="video/webm"/>
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <img src=" {% static 'images/images-2/hero-3.jpg' %}" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <video muted loop autoplay>
+                    <source src="{% static 'media/video-1.mp4' %}" type="video/mp4"/>
+                    <source src="{% static 'media/video-1.webm' %}" type="video/webm"/>
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+            <div class="container-fluid"></div>
+                <div class="row">
+                    <div class="col-md-4 offset-md-4">
+                        <br><br>
+                        <div class="card-overlay"></div>
+                        <div class="card">
+                            <div class="card-header"
+                                 style="">
+                                <h3 class="text-center">Create a new account</h3><br/>
+                            </div>
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="card-body">
+                                    {{ form.as_p }}
+                                </div>
+                                <div class="card-footer text-center">
+                                    <button class="btn btn-success" type="submit">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</header>
+<!-- Footer -->
+<footer class="footer">
+    <div class="row container">
+        <div class="col">
+            <h3>Company</h3>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="col">
+            <h3>Learning Center</h3>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="col">
+            <h3>Partner With Us</h3>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="col">
+            <img src="{% static 'images/images-2/pic-1.jpg' %}" alt=""/>
+            <img src="{% static 'images/images-2/pic-2.jpg' %}" alt=""/>
+            <img src="{% static 'images/images-2/pic-3.jpg' %}" alt=""/>
+            <img src="{% static 'images/images-2/pic-4.jpg' %}" alt=""/>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<!-- ======== SwiperJS ======= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
+<!-- ======== SCROLL REVEAL ======= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+<!-- ======== SliderJS ======= -->
+<script src="{% static 'js/slider.js' %}"></script>
+<!-- ======== IndexJS ======= -->
+<script src="{% static 'js/index.js' %}"></script>
+
+</body>
+</html>

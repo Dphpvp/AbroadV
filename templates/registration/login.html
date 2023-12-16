@@ -1,29 +1,64 @@
-{% extends 'base.html' %}
+{% extends 'finalbase.html' %}
 
-{% block title %} Login {% endblock %}
+{% block title %}Abroad Voyager - Login {% endblock %}
+
+
 
 {% block content %}
 
+<style>
+    .container-fluid {
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 20px;
+        margin: auto;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black; /* Set the text color to black */
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black;
+        font-size: 16px; /* Example paragraph font size */
+        line-height: 2; /* Example paragraph line height */
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: center;
+    }
+    p {
+        color: black;
+        font-weight: bold;
+    }
+</style>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 offset-md-4">
-                <br><br><br>
-                <div class="card" style="background-color: #f8f9fa; border: 2px solid #6c757d; border-radius: 15px; overflow: hidden;">
-                    <div class="card-header" style="background-color: #007bff; color: #fff; border-bottom: 2px solid #0056b3; border-radius: 12px 12px 0 0;">
-                        <h3 class="text-center">Login</h3>
-                    </div>
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="card-body">
-                            {{ form.as_p }}
-                        </div>
-                        <div class="card-footer text-center" style="background-color: #e9ecef; border-radius: 0 0 12px 12px;">
-                            <button type="submit" class="btn btn-success">Login</button>
-                            <a href="#" class="btn btn-danger">Reset password</a>
-                        </div>
-                    </form>
+    <div class="row">
+        <div class="col-md-3 offset-md-4">
+            <br><br><br>
+            <div class="card" style="border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s;">
+                <div class="card-header" style="background-color: #f2f2f2; padding: 10px;">
+                    <h3 class="text-center" align="center">Login</h3>
                 </div>
+                <form method="post" style="padding: 20px;">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        {{ form.as_p }}
+                    </div>
+                    <div class="card-footer text-center" style="background-color: #f2f2f2; padding: 10px;">
+                        <button type="submit" class="btn btn-success" style="margin-right: 10px;">Login</button>
+                        <a href="{% url 'password_change' %}" class="btn btn-danger">Reset password</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
 {% load static %}
 <head>
     <meta charset="UTF-8"/>
@@ -40,23 +41,24 @@
             </div>
             <ul class="nav-list d-flex">
                 <li class="nav-item">
-                    <a href="#header" class="nav-link">Home</a>
+                    <a href="{% url 'home' %}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">My Account</a>
+                    <a href="{% url 'account_details' %}" class="nav-link">My Account</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#service" class="nav-link">Notes</a>
+                    <a href="{% url 'list_of_notes' %}" class="nav-link">Notes</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#trips" class="nav-link">About Us</a>
+                    <a href="#about" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
 
-            <a href="#" class="btn sign-up">Sign Up</a>
+            <a href="{% url 'create-user' %}" class="btn sign-up">Sign Up</a>
+            <a href="{% url 'login' %}" class="btn sign-up">Login</a>
 
             <div class="hamburger">
                 <i class="bx bx-menu-alt-left"></i>
@@ -88,7 +90,7 @@
                 <video muted loop autoplay>
                     <source src="{% static 'media/video-3.mp4' %}" type="video/mp4"/>
                     <source src="{% static 'media/video-3.webm' %}" type="video/webm"/>
-                    video-3.webm
+                </video>
             </div>
             <div class="swiper-slide">
                 <img src=" {% static 'images/images-2/hero-3.jpg' %}" alt=""/>
@@ -108,17 +110,14 @@
         </h1>
         <!-- Add a search box above the "Search" button -->
         <div class="search-box-2">
-            <input type="text" class="search-input" placeholder="Plan my vacation to Rome"; style="height: 5rem; width: 50rem; background: Canvas ; position: center; align-self: center ">
+            <label>
+                <input type="text" class="search-input" placeholder="Plan my vacation to Rome" ;
+                       style="height: 5rem; width: 50rem; background: Canvas ; position: center; align-self: center ">
+            </label>
             <button class="btn search-btn">Search</button>
         </div>
     </div>
-    <div class="arrows d-flex">
-        <div class="swiper-prev d-flex">
-            <i class="bx bx-chevron-left swiper-icon"></i>
-        </div>
-        <div class="swiper-next d-flex">
-            <i class="bx bx-chevron-right swiper-icon"></i>
-        </div>
+    
     </div>
 </header>
 
@@ -131,14 +130,15 @@
                     <h1>About Us</h1>
                 </div>
                 <p>
-                    At Abroad Voyager, we are passionate about making your travel experience extraordinary.
-                    Our mission is to provide you with the best possible vacation tailored to your preferences and
-                    interests.
-                    Abroad Voyager leverages the power of artificial intelligence to create personalized travel plans.
-                    Our advanced algorithms analyze your preferences, budget and travel history to generate
-                    a unique itinerary that ensures you have an amazing and enjoyable vacation.
+                    <strong>At Abroad Voyager, we are passionate about making your travel experience extraordinary.
+                        Our mission is to provide you with the best possible vacation tailored to your preferences and
+                        interests.
+                        Abroad Voyager leverages the power of artificial intelligence to create personalized travel
+                        plans.
+                        Our advanced algorithms analyze your preferences, budget and travel history to generate
+                        a unique itinerary that ensures you have an amazing and enjoyable vacation.</strong>
                 </p>
-                <a href="#" class="btn">Know more</a>
+                <a href="{% url 'about' %}" class="btn">Know more</a>
             </div>
             <div class="col">
                 <div class="swiper-container slider-2">
@@ -172,17 +172,29 @@
             <img src=" {% static 'images/images-2/pic-1.jpg' %}" alt=""/>
             <div class="col">
                 <div class="title">
-                    <h1>How to Spend a Weekend?</h1>
+                    <h1>How to Enjoy a Weekend or a Trip?</h1>
                 </div>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-                    distinctio libero ducimus accusantium autem! Reprehenderit iste
-                    officia autem nemo earum porro molestiae maxime error unde,
-                    repellendus veritatis aperiam, culpa aspernatur tenetur ad. Quis
-                    cum omnis consequatur at odio quibusdam eaque quas! Itaque
-                    mollitia, molestias quos vitae saepe nam adipisci corporis?
+                    <strong>Embark on an enchanting escapade with our curated list of weekend city breaks and full
+                        vacation
+                        destinations. For a brief respite, dive into the vibrant streets of Tokyo, where modernity meets
+                        tradition, or bask in the romantic allure of Paris, the City of Love. Seeking a coastal retreat?
+                        Explore the sun-kissed beaches of Barcelona, blending art and architecture seamlessly.
+
+                        For those yearning for a more extended adventure, venture into the ancient wonders of Rome,
+                        where
+                        history echoes in every cobblestone. Uncover the cultural tapestry of Istanbul, where East and
+                        West
+                        converge, or lose yourself in the tropical paradise of Bali, a haven for relaxation and
+                        exploration.
+
+                        Whether you're drawn to the pulsating energy of bustling metropolises or the tranquil beauty of
+                        serene landscapes, our diverse destinations cater to your travel desires. Embarking on a weekend
+                        getaway or indulging in an extended vacation has never been more enticing. Discover, experience,
+                        and
+                        create lasting memories with Abroad Voyager.</strong>
                 </p>
-                <div class="d-flex">
+                <!--<div class="d-flex">
                     <h2>15 Days Tour</h2>
                     <div class="rating">
                         <span><i class="bx bxs-star"></i></span>
@@ -196,8 +208,8 @@
                     <h3 class="price">$7999.99</h3>
                     <a href="" class="btn">Book Now</a>
                 </div>
+            </div> -->
             </div>
-        </div>
     </section>
     <!-- discount Section -->
     <section class="section discount">
@@ -209,13 +221,14 @@
         </div>
         <div class="content">
             <h1>
-                Get 15% Off On Tour <br/>
+                Explore the World <br/>
                 Next Travel
             </h1>
-            <a href="#" class="btn">Explore the Tour</a>
+            <a href="{% url 'create-user' %}" class="btn">Explore the World</a>
             <span class="video-control d-flex"><i class="bx bx-play"></i></span>
         </div>
     </section>
+
 
     <!-- Trip Section -->
     <section class="section trip" id="trips">
@@ -225,9 +238,13 @@
                 Trip With Us
             </h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-                deserunt quaerat quasi earum veniam. Accusamus velit adipisci quidem
-                obcaecati molestiae.
+                <strong> "Abroad Voyager is your one-stop destination for seamless trip planning. Our section provides
+                    essential tools and resources to help you organize the perfect itinerary, including customizable
+                    travel
+                    guides, interactive maps, accommodation options, local transportation details, and curated lists of
+                    must-see attractions. Whether you're embarking on a solo adventure, a family vacation, or a romantic
+                    getaway, we've got you covered. Let us take the stress out of planning so you can focus on creating
+                    unforgettable memories."</strong>
             </p>
         </div>
 
@@ -271,39 +288,7 @@
     </section>
 
     <!-- More Section -->
-    <section class="section more">
-        <div class="row container">
-            <div class="col">
-                <div class="title">
-                    <h1>
-                        More Places for <br/>
-                        Your Next Travel
-                    </h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Consequatur enim iste autem laboriosam distinctio!
-                        Reprehenderit.
-                    </p>
-                </div>
-                <div class="tours">
-                    <div class="box">
-                        <img src="{% static 'images/images-2/pic-2.jpg' %}" alt=""/>
-                        <h3>Visit to Bali</h3>
-                        <h4>$6000</h4>
-                    </div>
-                    <div class="box">
-                        <img src="{% static 'images/images-2/pic-3.jpg' %}" alt=""/>
-                        <h3>Visit to Russia</h3>
-                        <h4>$8000</h4>
-                    </div>
-                </div>
-                <a href="#" class="btn">Explore more tours now</a>
-            </div>
-            <div class="col">
-                <img src="{% static 'images/images-2/pic-4.jpg' %}" alt=""/>
-            </div>
-        </div>
-    </section>
+
 
     <!-- NewsLetter Section -->
     <section class="section newsletter">
@@ -311,8 +296,11 @@
             <div class="col">
                 <h2>Subscribe to our Newsletter</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-                    laborum fugiat, voluptatem eligendi dolorum distinctio.
+                    <strong>Stay informed: Receive the latest updates on travel trends, exclusive offers, and
+                        destination
+                        insights directly to your inbox.
+                        By subscribing, you'll always be in the loop and have the opportunity to make the most of your
+                        travel experiences.</strong>
                 </p>
             </div>
             <form class="form">
@@ -329,21 +317,18 @@
         <div class="title">
             <h1>Contact Us</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-                quaerat repellendus quae laudantium porro sunt consequatur eaque
-                fugiat expedita provident.
-            </p>
-        </div>
+                We'd love to hear from you! Feel free to reach out to us via email or connect with us on social media
+                for any inquiries or feedback.<br/>
 
-        <div class="location container">
-            <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d151986.73738218265!2d-2.3635458403975003!3d53.47216354441132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a4d4c5226f5db%3A0xd9be143804fe6baa!2sManchester%2C%20UK!5e0!3m2!1sen!2sgh!4v1626192589397!5m2!1sen!2sgh"
-                    width="600"
-                    height="550"
-                    style="border: 0"
-                    allowfullscreen=""
-                    loading="lazy"
-            ></iframe>
+                <strong>📧 Email: contact@abroadvoyager.com
+
+                📷 Instagram: AbroadVoyager
+
+                📘 Facebook: Abroad Voyager</strong>
+                <br/>
+
+                Your thoughts and questions are important to us, and we're here to assist you every step of the way.
+            </p>
         </div>
     </section>
 </main>
@@ -384,12 +369,14 @@
             <img src="{% static 'images/images-2/pic-4.jpg' %}" alt=""/>
         </div>
     </div>
+    <center style="color: white">&copy; 2023 Abroad Voyager.  All rights reserved.</center>
+    <center style="color: white">&reg;Made by <a href="https://github.com/Dphpvp" style="color: white"> Dph</a>.  All rights reserved.</center>
 </footer>
 
-<!--  ===== WEATHER APP ====-->
+<!-- Weather app -->
 
 
-<div class="weather-api">
+ <div class="weather-api">
     <div class="container">
         <h1> Weather Info</h1>
         <input type="text" id="locationInput" placeholder="Enter a city">
@@ -399,12 +386,12 @@
             <p id="temperature"></p>
             <p id="description"></p>
         </div>
-
+    </div>
     </div>
     <script function getWeather() src= {% static 'js/script.js' %}></script>
 
 
-    <!-- ======== SwiperJS ======= -->
+     <!-- ======== SwiperJS ======= -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
     <!-- ======== SCROLL REVEAL ======= -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
@@ -412,5 +399,6 @@
     <script src="{% static 'js/slider.js' %}"></script>
     <!-- ======== IndexJS ======= -->
     <script src="{% static 'js/index.js' %}"></script>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'finalbase.html' %}
 
-{% block title %}  Create a new student {% endblock %}
+{% block title %}  Create a new account {% endblock %}
 
 {% block content %}
 
@@ -10,7 +10,7 @@
                 <br><br>
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center"> Create a new student</h3>
+                        <h3 class="text-center"> Create a new account</h3>
                     </div>
                         <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}

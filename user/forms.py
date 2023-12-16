@@ -29,7 +29,7 @@ class UserForm(forms.ModelForm):
         check_emails = User.objects.filter(
             email=get_email)  # CAUTAM VALOAREA INTRODUSA DE UTILIZATOR IN TABELA PE COLOANA EMAIL
         if check_emails:  # DACA EXISTA CEL PUTIN UN STUDENT CU ACEEASI ADRESA DE EMAIL
-            msg = 'Exista un student cu aceasta adresa de email'  # GENEREAM MESAJUL PENTRU AFISARE
+            msg = 'Exista un user cu aceasta adresa de email'  # GENEREAM MESAJUL PENTRU AFISARE
             self._errors['email'] = self.error_class([msg])  # LOCALIZAM PE CEL FIELD VREM SA AFISAM MESAJUL ERORII
 
         # Validare pentru start_date si end_date. Daca start_date > end_date atunci sa ii afisam o eroare
@@ -46,7 +46,7 @@ class UserForm(forms.ModelForm):
         get_first_name = cleaned_data['first_name']
         get_last_name = cleaned_data['last_name']
 
-        existing_user = Student.objects.filter(first_name=get_first_name, last_name=get_last_name)
+        existing_user = User.objects.filter(first_name=get_first_name, last_name=get_last_name)
 
         if existing_user:
             msg = 'Un student cu acel nume exista deja'
