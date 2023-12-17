@@ -163,32 +163,30 @@ button {
   }
 }
 /* ===========Search box======== */
-.search-box-2 {
+/*.chat-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 130px;
   width: 400px;
-  margin-top: 10px; /* Adjust the margin as needed */
+  margin-top: 10px;
+}
+*/
+
+.chat-box {
+    height: 5.2rem;
+    width: 50rem;
+    background: Canvas;
+    position: relative;
+    align-self: center;
 }
 
-.search-input {
-  padding: 5px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
-  font-size: 16px;
-  width: 400px;
-  height: 200px;/* Adjust the width as needed */
+#user-input {
+    height: 100%;
+    width: 80%;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
 }
-
-.search-btn {
-  padding: 10px 15px; /* Choose your desired color */
-  border: none;
-  font-size: 25px;
-  cursor: pointer;
-}
-
 /* =========== Navigation ============ */
 
 .header {
@@ -287,9 +285,9 @@ div.logo {
     left: -100%;
     width: 0;
     height: 100%;
-    max-width: 80%;
+    max-width: 100%;
     padding: 3rem 0;
-    background-color: white;
+    background-color: transparent;
     flex-direction: column;
     align-items: flex-start;
     box-shadow: var(--shadow-300);

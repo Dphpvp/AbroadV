@@ -1,38 +1,46 @@
+.login-card {
+    width: 35%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
 
-    .container-fluid {
-        position: relative;
-        background-color: rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
-        padding: 20px;
-        margin: auto;
-        width: 50%;
-        height: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: black; /* Set the text color to black */
-    }
+.card-header,
+.card-body,
+.card-footer {
+    background-color: transparent;
+}
 
-    .card-body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
-        color: black;
-        font-size: 14px; /* Example paragraph font size */
-        line-height: 2; /* Example paragraph line height */
-    }
+/* Style the input boxes */
+form input {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
 
-    .card-footer {
-        display: flex;
-        justify-content: center;
+/* Style the buttons */
+form button {
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    }
-    p {
-        color: black;
-        font-weight: bold;
-    }
+/* Style the links */
+form a {
+    color: #ffc107;
+}
+
+
+form p {
+    color: black;
+    font-weight: bold;
+}
 

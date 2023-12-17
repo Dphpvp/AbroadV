@@ -25,10 +25,10 @@
     />
 
     <!-- ======== StyleSheet ======= -->
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
 
-    <title>Create Notes</title>
+    <title>Login</title>
 </head>
 <body>
 <!-- header -->
@@ -65,7 +65,7 @@
                                aria-expanded="false">
                                 My Notes
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="background-color: transparent">
                                 <li><a class="dropdown-item" href="{% url 'create-notes' %}">Add Notes</a></li>
                                 <li><a class="dropdown-item" href="{% url 'list-of-notes' %}">Saved Notes</a></li>
                             </ul>
@@ -127,30 +127,25 @@
             </div>
         </div>
     </div>
-<div class="content">
+<div class="content" style="display: flex; align-items: center">
     <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 offset-md-0" style="background-color: transparent">
-            <div class="card" style="border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3); transition: 0.3s;">
-                <div class="card-header" style="background-color: transparent; padding: 5px;">
-                    <h2 class="text-center" align="center">Login</h2>
+                <div class="card login-card">
+                    <div class="card-header">
+                        <h2 class="text-center" align="center" style="font-size: 25px"><b>Login</b></h2>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            {{ form.as_p }}
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn sign-up">Login</button>
+                            <a href="{% url 'password_change' %}" class="btn sign-up">Reset password</a>
+                        </div>
+                    </form>
                 </div>
-                <form method= "post" style="resize: inherit; background-color: transparent; padding: 20px;">
-                    {% csrf_token %}
-                    <div class="card-body">
-                        {{ form.as_p }}
-                    </div>
-                    <div class="card-footer text-center" style="background-color: transparent; padding: 10px;">
-                        <button type="submit" class="btn btn-success" style="margin-right: 5px; ">Login</button>
-                        <a href="{% url 'password_change' %}" class="btn btn-danger">Reset password</a>
-                    </div>
-                </form>
-
             </div>
         </div>
-    </div>
-</div>
-    </div>
 </header>
 <!-- Footer -->
 <footer class="footer">

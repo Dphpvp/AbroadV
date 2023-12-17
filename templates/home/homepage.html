@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- ======== Bootstrap ===== -->
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- ======== Favicon ======= -->
     <link rel="shortcut icon" href="{% static 'images/images-2/favicon.ico' %}" type="image/x-icon"/>
@@ -26,6 +26,7 @@
 
     <!-- ======== StyleSheet ======= -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <title>Abroad Voyager</title>
 </head>
 <body>
@@ -36,61 +37,62 @@
 <!-- header -->
 <header class="header" id="header">
     <!-- Navigation -->
-<div class="navigation">
-    <nav class="nav d-flex" style="height: 9rem">
-        <div class="logo">
-            <a href="/">
-                <img src="{% static 'images/images-2/logo32.png' %}" alt="No Logo" style="height: 18rem; width: 18rem;"/>
-            </a>
-        </div>
-        <ul class="nav-list d-flex">
-            <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link">Home</a>
-            </li>
+    <div class="navigation">
+        <nav class="nav d-flex" style="height: 8rem">
+            <div class="logo">
+                <a href="/">
+                    <img src="{% static 'images/images-2/logo32.png' %}" alt="No Logo"
+                         style="height: 15rem; width: 15rem;"/>
+                </a>
+            </div>
+            <ul class="nav-list d-flex">
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link">Home</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                My Account
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'account-details' %}">Account details</a></li>
+                                <li><a class="dropdown-item" href="#">Update details</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                My Notes
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'create-notes' %}">Add Notes</a></li>
+                                <li><a class="dropdown-item" href="{% url 'list-of-notes' %}">Saved Notes</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
             {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            My Account
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'account-details' %}">Account details</a></li>
-                            <li><a class="dropdown-item" href="#">Update details</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            My Notes
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'create-notes' %}">Add Notes</a></li>
-                            <li><a class="dropdown-item" href="{% url 'list-of-notes' %}">Saved Notes</a></li>
-                        </ul>
-                    </div>
-                </li>
+                <a href="{% url 'logout' %}" class="btn sign-up">Logout {{ user.username }}</a>
+            {% else %}
+                <a href="{% url 'create-user' %}" class="btn sign-up">Sign Up</a>
+                <a href="{% url 'login' %}" class="btn sign-up">Login</a>
             {% endif %}
-            <li class="nav-item">
-                <a href="#about" class="nav-link">About Us</a>
-            </li>
-            <li class="nav-item">
-                <a href="#contact" class="nav-link">Contact</a>
-            </li>
-        </ul>
-        {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}" class="btn sign-up">Logout {{ user.username }}</a>
-        {% else %}
-            <a href="{% url 'create-user' %}" class="btn sign-up">Sign Up</a>
-            <a href="{% url 'login' %}" class="btn sign-up">Login</a>
-        {% endif %}
-        <div class="hamburger">
-            <i class="bx bx-menu-alt-left"></i>
-        </div>
-    </nav>
-</div>
-
-
+            <div class="hamburger">
+                <i class="bx bx-menu-alt-left"></i>
+            </div>
+        </nav>
+    </div>
 
     <!-- Hero -->
     <div class="swiper-container slider-1">
@@ -125,32 +127,32 @@
                 <video muted loop autoplay>
                     <source src="{% static 'media/video-1.mp4' %}" type="video/mp4"/>
                     <source src="{% static 'media/video-1.webm' %}" type="video/webm"/>
-
                 </video>
-
             </div>
-
         </div>
-
     </div>
-
     <div class="content">
         <h1>
-            Get Ready for <br/>
+            Get Ready for<br/>
             Lifetime Journey
         </h1>
-        <!-- Add a search box above the "Search" button -->
-        <div class="search-box-1">
+        <!-- Search Section -->
+<div class="chat-box" style="height: 5.2rem; width: 50rem; background: Canvas; position: relative; align-self: center;">
+    <div id="chat-history"></div>
+    <input type="text" id="user-input" placeholder="Plan my vacation to Rome..." style="height: 100%; width: 80%; padding: 0.5rem; margin:auto;">
+    <button onclick="sendMessage()" class="btn sign-up">Send</button>
+</div>
+       <!-- <div class="search-box-1">
             <label>
-                <input type="text" class="search-input" placeholder="Plan my vacation to Rome..." ;
+                <input type="text" id="search-input" class="search-input" placeholder="Plan my vacation to Rome..."
                        style="height: 5.2rem; width: 50rem; background: Canvas ; position: relative;  align-self: center ">
             </label>
-            <button class="btn search-btn">Search</button>
-        </div>
+            {% csrf_token %}
+            <button class="btn search-btn" onclick="search()">Search</button>
+        </div> -->
+        <!-- <button class="btn search-btn">Search</button> -->
     </div>
-
 </header>
-
 <main class="main">
     <!-- About Section -->
     <section class="section about" id="about">
@@ -352,9 +354,9 @@
 
                 <strong>📧 Email: contact@abroadvoyager.com
 
-                📷 Instagram: AbroadVoyager
+                    📷 Instagram: AbroadVoyager
 
-                📘 Facebook: Abroad Voyager</strong>
+                    📘 Facebook: Abroad Voyager</strong>
                 <br/>
 
                 Your thoughts and questions are important to us, and we're here to assist you every step of the way.
@@ -366,44 +368,46 @@
 <!-- Footer -->
 <footer class="footer">
     <br/>
-    <center style="color: white">&copy; 2023 Abroad Voyager.  All rights reserved.</center>
+    <center style="color: white">&copy; 2023 Abroad Voyager. All rights reserved.</center>
     <br/>
-    <center style="color: white">&reg;Made by <a href="https://mare-razvan.dev" style="color: white"> Dph</a>.  All rights reserved.</center>
+    <center style="color: white">&reg;Made by <a href="https://mare-razvan.dev" style="color: white"> Dph</a>. All
+        rights reserved.
+    </center>
     <br/>
 </footer>
 
 <!-- Weather app -->
 
 
- <!--<div class="weather-api">
-    <div class="container">
-        <h1> Weather Info</h1>
-        <input type="text" id="locationInput" placeholder="Enter a city">
-        <button id="searchButton">Search</button>
-        <div class="weather-info">
-            <h2 id="location"></h2>
-            <p id="temperature"></p>
-            <p id="description"></p>
-        </div>
-    </div>
-    </div>
+<!--<div class="weather-api">
+   <div class="container">
+       <h1> Weather Info</h1>
+       <input type="text" id="locationInput" placeholder="Enter a city">
+       <button id="searchButton">Search</button>
+       <div class="weather-info">
+           <h2 id="location"></h2>
+           <p id="temperature"></p>
+           <p id="description"></p>
+       </div>
+   </div>
+   </div>
 
-            </div>-->
-
-
-
-     <!-- ======== SwiperJS ======= -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
-    <!-- ======== SCROLL REVEAL ======= -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
-    <!-- ======== SliderJS ======= -->
-    <script src="{% static 'js/slider.js' %}"></script>
-    <!-- ======== IndexJS ======= -->
-    <script src="{% static 'js/index.js' %}"></script>
-    <!-- ======== Weather script ===== -->
-    <!-- <script function getWeather() src= {% static 'js/weather-script.js' %}></script> -->
+           </div>-->
 
 
+<!-- ======== SwiperJS ======= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
+<!-- ======== SCROLL REVEAL ======= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+<!-- ======== SliderJS ======= -->
+<script src="{% static 'js/slider.js' %}"></script>
+<!-- ======== IndexJS ======= -->
+<script src="{% static 'js/index.js' %}"></script>
+<!-- ======== Weather script ===== -->
+<!-- <script function getWeather() src= {% static 'js/weather-script.js' %}></script> -->
+
+<!-- ======= Search script ======= -->
+<script src="{% static 'js/search-script.js' %}"></script>
 
 
 </body>
