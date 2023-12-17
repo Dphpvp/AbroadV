@@ -43,12 +43,14 @@
                 <li class="nav-item">
                     <a href="{% url 'home' %}" class="nav-link">Home</a>
                 </li>
+                {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a href="{% url 'account-details' %}" class="nav-link">My Account</a>
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'create-notes' %}" class="nav-link">Notes</a>
                 </li>
+                {% endif %}
                 <li class="nav-item">
                     <a href="#about" class="nav-link">About Us</a>
                 </li>
@@ -59,30 +61,13 @@
 
             <a href="{% url 'create-user' %}" class="btn sign-up">Sign Up</a>
             <a href="{% url 'login' %}" class="btn sign-up">Login</a>
-
+            {% if user.is_authenticated %}
+            <div>
+                <a href="{% url 'logout' %}" class="btn sign-up">Logout {{ user.username }}</a>
+            </div>
+            {% endif %}
             <div class="hamburger">
                 <i class="bx bx-menu-alt-left"></i>
-                <!-- Weather app -->
-
-
- <div class="weather-api">
-    <div class="container">
-        <h1> Weather Info</h1>
-        <input type="text" id="locationInput" placeholder="Enter a city">
-        <button id="searchButton">Search</button>
-        <div class="weather-info">
-            <h2 id="location"></h2>
-            <p id="temperature"></p>
-            <p id="description"></p>
-        </div>
-    </div>
-    </div>
-    <script function getWeather() src= {% static 'js/script.js' %}></script>
-            </div>
-
-        </nav>
-    </div>
-
 
     <!-- Hero -->
     <div class="swiper-container slider-1">
@@ -135,13 +120,13 @@
         <div class="search-box-2">
             <label>
                 <input type="text" class="search-input" placeholder="Plan my vacation to Rome" ;
-                       style="height: 5rem; width: 50rem; background: Canvas ; position: center; align-self: center ">
+                       style="height: 4.15rem; width: 50rem; background: Canvas ; position: relative;  align-self: center ">
             </label>
-            <button class="btn search-btn">Search</button>
+            <button class="btn bx-search-alt-2">Search</button>
         </div>
     </div>
 
-    </div>
+
 </header>
 
 <main class="main">
@@ -358,42 +343,11 @@
 
 <!-- Footer -->
 <footer class="footer">
-    <div class="row container">
-        <div class="col">
-            <h3>Company</h3>
-            <a href="#">Contact Us</a>
-            <a href="#">Executive Team</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Executive Team</a>
-            <a href="#">Contact Us</a>
-        </div>
-        <div class="col">
-            <h3>Learning Center</h3>
-
-            <a href="#">Contact Us</a>
-            <a href="#">Executive Team</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Executive Team</a>
-            <a href="#">Contact Us</a>
-        </div>
-        <div class="col">
-            <h3>Partner With Us</h3>
-
-            <a href="#">Contact Us</a>
-            <a href="#">Executive Team</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Executive Team</a>
-            <a href="#">Contact Us</a>
-        </div>
-        <div class="col">
-            <img src="{% static 'images/images-2/pic-1.jpg' %}" alt=""/>
-            <img src="{% static 'images/images-2/pic-2.jpg' %}" alt=""/>
-            <img src="{% static 'images/images-2/pic-3.jpg' %}" alt=""/>
-            <img src="{% static 'images/images-2/pic-4.jpg' %}" alt=""/>
-        </div>
-    </div>
+    <br/>
     <center style="color: white">&copy; 2023 Abroad Voyager.  All rights reserved.</center>
+    <br/>
     <center style="color: white">&reg;Made by <a href="https://mare-razvan.dev" style="color: white"> Dph</a>.  All rights reserved.</center>
+    <br/>
 </footer>
 
 <!-- Weather app -->
@@ -411,7 +365,31 @@
         </div>
     </div>
     </div>
+
+
+               <!-- Weather app -->
+
+
+<!--  <div class="weather-api">
+    <div class="container">
+        <h1> Weather Info</h1>
+        <input type="text" id="locationInput" placeholder="Enter a city">
+        <button id="searchButton">Search</button>
+        <div class="weather-info">
+            <h2 id="location"></h2>
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+    </div>
+    </div>
     <script function getWeather() src= {% static 'js/script.js' %}></script>
+            </div>
+
+        </nav>
+    </div> -->
+
+
+
 
 
      <!-- ======== SwiperJS ======= -->

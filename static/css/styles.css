@@ -871,9 +871,9 @@ div.logo {
 }
 
 .footer .row {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(4, 1fr);
-  padding: 7rem 3rem;
+  padding: 5rem 3rem;
 }
 
 .footer .row .col:last-child {
@@ -883,7 +883,7 @@ div.logo {
 }
 
 .footer .row .col:last-child img {
-  height: 10rem;
+  height: 5rem;
 }
 
 .footer .row .col {
@@ -905,14 +905,14 @@ div.logo {
 
 @media (max-width: 767px) {
   .footer .row {
-    row-gap: 7rem;
+    row-gap: 5rem;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 567px) {
   .footer .row {
-    gap: 4rem 0;
+    gap: 3rem 0;
     grid-template-columns: 1fr;
   }
 }
