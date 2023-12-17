@@ -1,18 +1,18 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
-from notes.forms import NotesForm
-from .models import Notes
+from django.shortcuts import render, redirect
+from .models import Note
+from .forms import NoteForm
 
+def add_note(request):
+    if request.method == 'POST':
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('list-of-notes')  # Update to the correct URL name
+    else:
+        form = NoteForm()
 
-class NotesCreateView(LoginRequiredMixin, CreateView):
-    template_name = 'notes/create_note.html'
-    model = Notes
-    form_class = NotesForm
-    success_url = reverse_lazy('list_of_notes')
+    return render(request, 'notes/create_note.html', {'form': form})
 
-
-class NotesListView(LoginRequiredMixin, ListView):
-    template_name = 'notes/list_of_notes.html'
-    model = Notes
-    context_object_name = 'all_notes'
+def notes_list(request):
+    notes = Note.objects.all()
+    return render(request, 'notes/list_of_notes.html', {'notes': notes})

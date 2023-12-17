@@ -1,0 +1,38 @@
+
+    .container-fluid {
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 20px;
+        margin: auto;
+        width: 50%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black; /* Set the text color to black */
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        color: black;
+        font-size: 14px; /* Example paragraph font size */
+        line-height: 2; /* Example paragraph line height */
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: center;
+
+    }
+    p {
+        color: black;
+        font-weight: bold;
+    }
+

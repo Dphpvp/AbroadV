@@ -25,6 +25,8 @@
     <orderEntry type="library" name="boxicons" level="application" />
     <orderEntry type="library" name="Swiper" level="application" />
     <orderEntry type="library" name="scrollReveal.js" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery-3.6.4" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

@@ -1,80 +1,163 @@
-{% extends 'finalbase.html' %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+{% load static %}
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- ======== Bootstrap ===== -->
 
-{% block title %}  Submit notes {% endblock %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-{% block content %}
-<title>Item List</title>
-    <style>
-        /* Optional: Add some basic styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
+    <!-- ======== Favicon ======= -->
+    <link rel="shortcut icon" href="{% static 'images/images-2/favicon.ico' %}" type="image/x-icon"/>
+    <!-- ======== Boxicons ======= -->
+    <link
+            href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+            rel="stylesheet"
+    />
+    <!-- ======== Slider Js ======= -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.css"
+    />
 
-        #itemInput {
-            width: 200px;
-            margin-right: 10px;
-        }
+    <!-- ======== StyleSheet ======= -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/notes.css' %}"/>
 
-        #itemList {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .list-item {
-            margin-bottom: 5px;
-        }
-
-        .delete-btn {
-            margin-left: 5px;
-            cursor: pointer;
-        }
-    </style>
-
+    <title>Create Notes</title>
+</head>
 <body>
+<!-- header -->
+<header class="header" id="header">
+    <!-- Navigation -->
+<div class="navigation">
+    <nav class="nav d-flex" style="height: 9rem">
+        <div class="logo">
+            <a href="/">
+                <img src="{% static 'images/images-2/logo32.png' %}" alt="No Logo" style="height: 18rem; width: 18rem;"/>
+            </a>
+        </div>
+        <ul class="nav-list d-flex">
+            <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            My Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'account-details' %}">Account details</a></li>
+                            <li><a class="dropdown-item" href="#">Update details</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            My Notes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'create-notes' %}">Add Notes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'list-of-notes' %}">Saved Notes</a></li>
+                        </ul>
+                    </div>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+                <a href="{% url 'about' %}" class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn sign-up">Logout {{ user.username }}</a>
+        {% else %}
+            <a href="{% url 'create-user' %}" class="btn sign-up">Sign Up</a>
+            <a href="{% url 'login' %}" class="btn sign-up">Login</a>
+        {% endif %}
+        <div class="hamburger">
+            <i class="bx bx-menu-alt-left"></i>
+        </div>
+    </nav>
+</div>
+    <!-- Hero -->
+    <div class="swiper-container slider-1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src=" {% static 'images/images-2/pic-1.jpg' %}" alt=""/>
+            </div>
 
-<h2>Item List</h2>
+            <div class="swiper-slide">
+                <img src="{% static 'images/images-2/pic-5.jpg' %}" alt="hero image"/>
+            </div>
+            <div class="swiper-slide">
+                <video muted loop autoplay>
+                    <source src="{% static 'media/video-2.mp4' %}" type="video/mp4"/>
+                    <source src="{% static 'media/video-2.webm' %}" type="video/webm"/>
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <img src=" {% static 'images/images-2/pic-6.jpg' %}" alt="hero image"/>
+            </div>
 
-<form id="addItemForm">
-    <label for="itemInput">Add Item:</label>
-    <input type="text" id="itemInput" name="item" required>
-    <button type="button" onclick="addItem()">Add</button>
-</form>
+            <div class="swiper-slide">
+                <video muted loop autoplay>
+                    <source src="{% static 'media/video-3.mp4' %}" type="video/mp4"/>
+                    <source src="{% static 'media/video-3.webm' %}" type="video/webm"/>
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <img src=" {% static 'images/images-2/hero-3.jpg' %}" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <video muted loop autoplay>
+                    <source src="{% static 'media/video-1.mp4' %}" type="video/mp4"/>
+                    <source src="{% static 'media/video-1.webm' %}" type="video/webm"/>
+                </video>
+            </div>
+        </div>
+    </div>
+<div class="content">
+    <div class="container-fluid">
+        <h2>Save your ideas here</h2>
+        <form id="note-form">
+            {% csrf_token %}
+            <textarea id="note-input" placeholder="Type your note here"></textarea>
+            <button type="button" onclick="addNote()">Add Note</button>
+        </form>
+    </div>
+</div>
 
-<ul id="itemList"></ul>
+</header>
+<!-- Footer -->
+<footer class="footer">
+    <br/>
+    <center style="color: white">&copy; 2023 Abroad Voyager.  All rights reserved.</center>
+    <br/>
+    <center style="color: white">&reg;Made by <a href="https://mare-razvan.dev" style="color: white"> Dph</a>.  All rights reserved.</center>
+    <br/>
+</footer>
 
-<script>
-    function addItem() {
-        // Get the input value
-        var newItem = document.getElementById("itemInput").value.trim();
-
-        // Check if the input is not empty
-        if (newItem !== "") {
-            // Create a new list item
-            var li = document.createElement("li");
-            li.className = "list-item";
-            li.innerHTML = newItem;
-
-            // Create a delete button for the list item
-            var deleteBtn = document.createElement("span");
-            deleteBtn.className = "delete-btn";
-            deleteBtn.innerHTML = "❌";
-            deleteBtn.onclick = function () {
-                li.remove();
-            };
-
-            // Append the delete button to the list item
-            li.appendChild(deleteBtn);
-
-            // Append the list item to the item list
-            document.getElementById("itemList").appendChild(li);
-
-            // Clear the input field
-            document.getElementById("itemInput").value = "";
-        }
-    }
-</script>
+     <!-- ======== SwiperJS ======= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
+    <!-- ======== SCROLL REVEAL ======= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <!-- ======== SliderJS ======= -->
+    <script src="{% static 'js/slider.js' %}"></script>
+    <!-- ======== IndexJS ======= -->
+    <script src="{% static 'js/index.js' %}"></script>
+    <!-- ======== Weather script ===== -->
+    <!-- <script function getWeather() src= {% static 'js/weather-script.js' %}></script> -->
+    <!-- ======= List Script ======= -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{% static 'js/notes-script.js' %}"></script>
 
 </body>
-
-{% endblock %}
+</html>
