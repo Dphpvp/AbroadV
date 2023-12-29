@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'user',
     'userextend',
     'notes',
+    'utilities'
 ]
 
 MIDDLEWARE = [

@@ -74,6 +74,9 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a href="{% url 'utilities' %}" class="nav-link">Utilities</a>
+                    </li>
                 {% endif %}
                 <li class="nav-item">
                     <a href="#about" class="nav-link">About Us</a>
@@ -137,12 +140,14 @@
             Lifetime Journey
         </h1>
         <!-- Search Section -->
-<div class="chat-box" style="height: 5.2rem; width: 50rem; background: Canvas; position: relative; align-self: center;">
-    <div id="chat-history"></div>
-    <input type="text" id="user-input" placeholder="Plan my vacation to Rome..." style="height: 100%; width: 80%; padding: 0.5rem; margin:auto;">
-    <button onclick="sendMessage()" class="btn sign-up">Send</button>
-</div>
-       <!-- <div class="search-box-1">
+        <div class="chat-box"
+             style="height: 5.2rem; width: 50rem; background: Canvas; position: relative; align-self: center;">
+            <div id="chat-history"></div>
+            <input type="text" id="user-input" placeholder="Plan my vacation to Rome..."
+                   style="height: 100%; width: 80%; padding: 0.5rem; margin:auto;">
+            <button onclick="sendMessage()" class="btn sign-up">Send</button>
+        </div>
+        <!-- <div class="search-box-1">
             <label>
                 <input type="text" id="search-input" class="search-input" placeholder="Plan my vacation to Rome..."
                        style="height: 5.2rem; width: 50rem; background: Canvas ; position: relative;  align-self: center ">
@@ -376,24 +381,6 @@
     <br/>
 </footer>
 
-<!-- Weather app -->
-
-
-<!--<div class="weather-api">
-   <div class="container">
-       <h1> Weather Info</h1>
-       <input type="text" id="locationInput" placeholder="Enter a city">
-       <button id="searchButton">Search</button>
-       <div class="weather-info">
-           <h2 id="location"></h2>
-           <p id="temperature"></p>
-           <p id="description"></p>
-       </div>
-   </div>
-   </div>
-
-           </div>-->
-
 
 <!-- ======== SwiperJS ======= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
@@ -404,7 +391,7 @@
 <!-- ======== IndexJS ======= -->
 <script src="{% static 'js/index.js' %}"></script>
 <!-- ======== Weather script ===== -->
-<!-- <script function getWeather() src= {% static 'js/weather-script.js' %}></script> -->
+<script function getWeather() src= {% static 'js/weather-script.js' %}></script>
 
 <!-- ======= Search script ======= -->
 <script src="{% static 'js/search-script.js' %}"></script>

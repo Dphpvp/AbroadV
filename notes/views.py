@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Note
 from .forms import NoteForm
 
+
 def add_note(request):
     if request.method == 'POST':
         form = NoteForm(request.POST)
@@ -12,6 +13,7 @@ def add_note(request):
         form = NoteForm()
 
     return render(request, 'notes/create_note.html', {'form': form})
+
 
 def notes_list(request):
     notes = Note.objects.all()

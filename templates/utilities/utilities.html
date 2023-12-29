@@ -6,6 +6,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <!-- ======== Bootstrap ===== -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,23 +27,19 @@
 
     <!-- ======== StyleSheet ======= -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <title>Abroad Voyager</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}"/>
+    <title>About Us</title>
 </head>
 <body>
-<!-- Preloader -->
-<div class="loader">
-    <img src=" {% static 'images/images-2/preloader.gif' %}" alt=""/>
-</div>
 <!-- header -->
 <header class="header" id="header">
     <!-- Navigation -->
     <div class="navigation">
-        <nav class="nav d-flex" style="height: 8rem">
+        <nav class="nav d-flex" style="height: 9rem">
             <div class="logo">
                 <a href="/">
                     <img src="{% static 'images/images-2/logo32.png' %}" alt="No Logo"
-                         style="height: 15rem; width: 15rem;"/>
+                         style="height: 18rem; width: 18rem;"/>
                 </a>
             </div>
             <ul class="nav-list d-flex">
@@ -79,10 +76,10 @@
                     </li>
                 {% endif %}
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">About Us</a>
+                    <a href="{% url 'about' %}" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link">Contact</a>
                 </li>
             </ul>
             {% if user.is_authenticated %}
@@ -96,14 +93,12 @@
             </div>
         </nav>
     </div>
-
     <!-- Hero -->
     <div class="swiper-container slider-1">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img src=" {% static 'images/images-2/pic-1.jpg' %}" alt=""/>
             </div>
-
             <div class="swiper-slide">
                 <img src="{% static 'images/images-2/pic-5.jpg' %}" alt="hero image"/>
             </div>
@@ -116,7 +111,6 @@
             <div class="swiper-slide">
                 <img src=" {% static 'images/images-2/pic-6.jpg' %}" alt="hero image"/>
             </div>
-
             <div class="swiper-slide">
                 <video muted loop autoplay>
                     <source src="{% static 'media/video-3.mp4' %}" type="video/mp4"/>
@@ -134,11 +128,53 @@
             </div>
         </div>
     </div>
+    <div class="content">
+    <div class="container-fluid"
+         style="background-color: transparent; backdrop-filter: blur(10px); padding: 20px; display: flex; flex-direction: row; align-items: flex-start; justify-content: flex-start; width: 100rem; height: 70rem;">
 
-{% block content %}
+        <!-- Exchange app -->
+        <div class="currency-exchange">
+            <div class="container">
+                <h2 style="color: ghostwhite"><strong>Currency Exchange</strong></h2>
+                <select id="fromCurrency">
+                    <!-- Add options for source currency -->
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <!-- Add more currencies as needed -->
+                </select>
+                <select id="toCurrency">
+                    <!-- Add options for target currency -->
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <!-- Add more currencies as needed -->
+                </select>
+                <input type="text" id="amountInput" placeholder="Enter amount">
+                <button id="convertButton" class="btn sign-up">Convert</button>
+                <div class="exchange-info">
+                    <p id="exchangeRate"></p>
+                    <p id="convertedAmount"></p>
+                </div>
+            </div>
+        </div>
 
-{% endblock %}
+        <!-- Weather app -->
+        <div class="weather-api">
+            <div class="container">
+                <h2 style="color: ghostwhite"><strong>Weather Info</strong></h2>
+                <input type="text" id="locationInput" placeholder="Enter a city">
+                <button id="searchButton" class="btn sign-up">Search</button>
+                <div class="weather-info">
+                    <h2 id="location"></h2>
+                    <p id="temperature"></p>
+                    <p id="description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+</header>
 <!-- Footer -->
 <footer class="footer">
     <br/>
@@ -150,7 +186,6 @@
     <br/>
 </footer>
 
-
 <!-- ======== SwiperJS ======= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
 <!-- ======== SCROLL REVEAL ======= -->
@@ -159,12 +194,39 @@
 <script src="{% static 'js/slider.js' %}"></script>
 <!-- ======== IndexJS ======= -->
 <script src="{% static 'js/index.js' %}"></script>
-<!-- ======== Weather script ===== -->
-<script function getWeather() src= {% static 'js/weather-script.js' %}></script>
-
-<!-- ======= Search script ======= -->
-<script src="{% static 'js/search-script.js' %}"></script>
-
-
+<!-- ======= Weather script ======= -->
+<script src="{% static 'js/weather-script.js' %}"></script>
+<!-- ======= Currency Exchange script ======= -->
+<script src="{% static 'js/currency_exchange.js' %}"></script>
 </body>
 </html>
+
+
+
+
+<style>
+    .container-fluid {
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        display: flex;
+        flex-direction: row; /* Set to row to place elements side by side */
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100rem;
+        height: 70rem;
+    }
+
+    .weather-api,
+    .currency-exchange {
+        flex: 1; /* Equal width for both sections */
+        margin-right: 20px; /* Adjust as needed for spacing between sections */
+        justify-content: inherit;
+    }
+</style>
+
+
+
+
+
+

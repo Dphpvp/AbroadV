@@ -23,7 +23,6 @@ class UserListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     permission_required = 'user.view_list_of_users'
 
 
-
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'user/update_user.html'
     model = User

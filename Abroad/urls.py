@@ -31,6 +31,7 @@ urlpatterns = [
     path('', include('user.urls')),
     path('', include('userextend.urls')),
     path('notes/',include('notes.urls')),
+    path('utilities/', include('utilities.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

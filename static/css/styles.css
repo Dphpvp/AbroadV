@@ -935,3 +935,26 @@ div.logo {
 
 /* ======= About =======*/
 
+
+/* ====== Utilities =======*/
+
+    .container-fluid {
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        display: flex;
+        flex-direction: row; /* Set to row to place elements side by side */
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100rem;
+        height: 70rem;
+    }
+
+    .weather-api,
+    .currency-exchange {
+        flex: 1; /* Equal width for both sections */
+        margin-right: 20px; /* Adjust as needed for spacing between sections */
+    }
+
+
+
