@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+{% load static %}
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- ======== Favicon ======= -->
+    <link rel="shortcut icon" href="{% static 'images/images-2/favicon.ico' %}" type="image/x-icon"/>
+    <!-- ======== Boxicons ======= -->
+    <link
+            href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+            rel="stylesheet"
+    />
+    <!-- ======== Slider Js ======= -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.css"
+    />
+
+    <!-- ======== StyleSheet ======= -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <title>Abroad Voyager</title>
+</head>
+<body>
+<!-- Preloader -->
+<div class="loader">
+    <img src=" {% static 'images/images-2/preloader.gif' %}" alt=""/>
+</div>
+<!-- header -->
+<header class="header" id="header">
+    <!-- Navigation -->
+    <div class="navigation">
+        <nav class="nav d-flex" style="height: 9rem">
+            <div class="logo">
+                <a href="/">
+                    <img src=" {% static 'images/images-2/logo32.png' %}" alt="No Logo"
+                         style="height: 20rem; width: 20rem;"/>
+                </a>
+            </div>
+            <ul class="nav-list d-flex">
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link">Home</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="{% url 'account-details' %}" class="nav-link">My Account</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'create-notes' %}" class="nav-link">Notes</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <a href="{% url 'create-user' %}" class="btn sign-up">Sign Up</a>
+            <a href="{% url 'login' %}" class="btn sign-up">Login</a>
+            {% if user.is_authenticated %}
+            <div>
+                <a href="{% url 'logout' %}" class="btn sign-up">Logout {{ user.username }}</a>
+            </div>
+            {% endif %}
+            <div class="hamburger">
+                <i class="bx bx-menu-alt-left"></i>
+
+    <!-- Hero -->
+    <div class="swiper-container slider-1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src=" {% static 'images/images-2/pic-1.jpg' %}" alt=""/>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="{% static 'images/images-2/pic-5.jpg' %}" alt="hero image"/>
+            </div>
+            <div class="swiper-slide">
+                <video muted loop autoplay>
+                    <source src="{% static 'media/video-2.mp4' %}" type="video/mp4"/>
+                    <source src="{% static 'media/video-2.webm' %}" type="video/webm"/>
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <img src=" {% static 'images/images-2/pic-6.jpg' %}" alt="hero image"/>
+            </div>
+
+            <div class="swiper-slide">
+                <video muted loop autoplay>
+                    <source src="{% static 'media/video-3.mp4' %}" type="video/mp4"/>
+                    <source src="{% static 'media/video-3.webm' %}" type="video/webm"/>
+                </video>
+            </div>
+            <div class="swiper-slide">
+                <img src=" {% static 'images/images-2/hero-3.jpg' %}" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <video muted loop autoplay>
+                    <source src="{% static 'media/video-1.mp4' %}" type="video/mp4"/>
+                    <source src="{% static 'media/video-1.webm' %}" type="video/webm"/>
+
+                </video>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="content">
+        <h1>
+            Get Ready for <br/>
+            Lifetime Journey
+        </h1>
+        <!-- Add a search box above the "Search" button -->
+        <div class="search-box-2">
+            <label>
+                <input type="text" class="search-input" placeholder="Plan my vacation to Rome" ;
+                       style="height: 4.15rem; width: 50rem; background: Canvas ; position: relative;  align-self: center ">
+            </label>
+            <button class="btn bx-search-alt-2">Search</button>
+        </div>
+    </div>
+
+
+</header>
+
+<main class="main">
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="row container">
+            <div class="col">
+                <div class="title">
+                    <h1>About Us</h1>
+                </div>
+                <p>
+                    <strong>At Abroad Voyager, we are passionate about making your travel experience extraordinary.
+                        Our mission is to provide you with the best possible vacation tailored to your preferences and
+                        interests.
+                        Abroad Voyager leverages the power of artificial intelligence to create personalized travel
+                        plans.
+                        Our advanced algorithms analyze your preferences, budget and travel history to generate
+                        a unique itinerary that ensures you have an amazing and enjoyable vacation.</strong>
+                </p>
+                <a href="{% url 'about' %}" class="btn">Know more</a>
+            </div>
+            <div class="col">
+                <div class="swiper-container slider-2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/images-2/pic-5.jpg' %}" alt="hero image"/>
+                        </div>
+                        <div class="swiper-slide">
+                            <video muted loop autoplay>
+                                <source src="{% static 'media/video-3.mp4' %}" type="video/mp4"/>
+                                <source src="{% static 'media/video-3.webm' %}" type="video/webm"/>
+                            </video>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/images-2/hero-3.jpg' %}" alt=""/>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next">
+                        <i class="bx bx-chevron-right swiper-icon"></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                        <i class="bx bx-chevron-left swiper-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  Service Section -->
+    <section class="section service" id="service">
+        <div class="row container">
+            <img src=" {% static 'images/images-2/pic-1.jpg' %}" alt=""/>
+            <div class="col">
+                <div class="title">
+                    <h1>How to Enjoy a Weekend or a Trip?</h1>
+                </div>
+                <p>
+                    <strong>Embark on an enchanting escapade with our curated list of weekend city breaks and full
+                        vacation
+                        destinations. For a brief respite, dive into the vibrant streets of Tokyo, where modernity meets
+                        tradition, or bask in the romantic allure of Paris, the City of Love. Seeking a coastal retreat?
+                        Explore the sun-kissed beaches of Barcelona, blending art and architecture seamlessly.
+
+                        For those yearning for a more extended adventure, venture into the ancient wonders of Rome,
+                        where
+                        history echoes in every cobblestone. Uncover the cultural tapestry of Istanbul, where East and
+                        West
+                        converge, or lose yourself in the tropical paradise of Bali, a haven for relaxation and
+                        exploration.
+
+                        Whether you're drawn to the pulsating energy of bustling metropolises or the tranquil beauty of
+                        serene landscapes, our diverse destinations cater to your travel desires. Embarking on a weekend
+                        getaway or indulging in an extended vacation has never been more enticing. Discover, experience,
+                        and
+                        create lasting memories with Abroad Voyager.</strong>
+                </p>
+                <!--<div class="d-flex">
+                    <h2>15 Days Tour</h2>
+                    <div class="rating">
+                        <span><i class="bx bxs-star"></i></span>
+                        <span><i class="bx bxs-star"></i></span>
+                        <span><i class="bx bxs-star"></i></span>
+                        <span><i class="bx bxs-star"></i></span>
+                        <span><i class="bx bxs-star"></i></span>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <h3 class="price">$7999.99</h3>
+                    <a href="" class="btn">Book Now</a>
+                </div>
+            </div> -->
+            </div>
+    </section>
+    <!-- discount Section -->
+    <section class="section discount">
+        <div class="overlay">
+            <video class="video">
+                <source src="{% static 'media/hero-2.m4v' %}" type="video/mp4"/>
+                <source src="{% static 'media/hero-2.webm' %}" type="video/webm"/>
+            </video>
+        </div>
+        <div class="content">
+            <h1>
+                Explore the World <br/>
+                Next Travel
+            </h1>
+            <a href="{% url 'create-user' %}" class="btn">Explore the World</a>
+            <span class="video-control d-flex"><i class="bx bx-play"></i></span>
+        </div>
+    </section>
+
+
+    <!-- Trip Section -->
+    <section class="section trip" id="trips">
+        <div class="title">
+            <h1>
+                Plan Your <br/>
+                Trip With Us
+            </h1>
+            <p>
+                <strong> "Abroad Voyager is your one-stop destination for seamless trip planning. Our section provides
+                    essential tools and resources to help you organize the perfect itinerary, including customizable
+                    travel
+                    guides, interactive maps, accommodation options, local transportation details, and curated lists of
+                    must-see attractions. Whether you're embarking on a solo adventure, a family vacation, or a romantic
+                    getaway, we've got you covered. Let us take the stress out of planning so you can focus on creating
+                    unforgettable memories."</strong>
+            </p>
+        </div>
+
+        <div class="row container">
+            <div class="swiper-container slider-3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{% static 'images/images-2/vert-1.jpg' %}" alt="hero image"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'images/images-2/vert-2.jpg' %}" alt=""/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'images/images-2/vert-3.jpg' %}" alt=""/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'images/images-2/vert-4.jpg' %}" alt=""/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'images/images-2/vert-5.jpg' %}" alt=""/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'images/images-2/vert-6.jpg' %}" alt=""/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{% static 'images/images-2/vert-7.jpg' %}" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-next d-flex">
+                <i class="bx bx-chevron-right swiper-icon"></i>
+            </div>
+            <div class="custom-prev d-flex">
+                <i class="bx bx-chevron-left swiper-icon"></i>
+            </div>
+            <div class="custom-pagination d-flex"></div>
+        </div>
+        <div class="explore">
+            <a href="#" class="btn">Explore All</a>
+        </div>
+    </section>
+
+    <!-- More Section -->
+
+
+    <!-- NewsLetter Section -->
+    <section class="section newsletter">
+        <div class="row container">
+            <div class="col">
+                <h2>Subscribe to our Newsletter</h2>
+                <p>
+                    <strong>Stay informed: Receive the latest updates on travel trends, exclusive offers, and
+                        destination
+                        insights directly to your inbox.
+                        By subscribing, you'll always be in the loop and have the opportunity to make the most of your
+                        travel experiences.</strong>
+                </p>
+            </div>
+            <form class="form">
+                <div>
+                    <input type="email" placeholder="Email"/>
+                    <button>Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="title">
+            <h1>Contact Us</h1>
+            <p>
+                We'd love to hear from you! Feel free to reach out to us via email or connect with us on social media
+                for any inquiries or feedback.<br/>
+
+                <strong>📧 Email: contact@abroadvoyager.com
+
+                📷 Instagram: AbroadVoyager
+
+                📘 Facebook: Abroad Voyager</strong>
+                <br/>
+
+                Your thoughts and questions are important to us, and we're here to assist you every step of the way.
+            </p>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <br/>
+    <center style="color: white">&copy; 2023 Abroad Voyager.  All rights reserved.</center>
+    <br/>
+    <center style="color: white">&reg;Made by <a href="https://mare-razvan.dev" style="color: white"> Dph</a>.  All rights reserved.</center>
+    <br/>
+</footer>
+
+<!-- Weather app -->
+
+
+ <div class="weather-api">
+    <div class="container">
+        <h1> Weather Info</h1>
+        <input type="text" id="locationInput" placeholder="Enter a city">
+        <button id="searchButton">Search</button>
+        <div class="weather-info">
+            <h2 id="location"></h2>
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+    </div>
+    </div>
+
+
+               <!-- Weather app -->
+
+
+<!--  <div class="weather-api">
+    <div class="container">
+        <h1> Weather Info</h1>
+        <input type="text" id="locationInput" placeholder="Enter a city">
+        <button id="searchButton">Search</button>
+        <div class="weather-info">
+            <h2 id="location"></h2>
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+    </div>
+    </div>
+    <script function getWeather() src= {% static 'js/script.js' %}></script>
+            </div>
+
+        </nav>
+    </div> -->
+
+
+
+
+
+     <!-- ======== SwiperJS ======= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
+    <!-- ======== SCROLL REVEAL ======= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <!-- ======== SliderJS ======= -->
+    <script src="{% static 'js/slider.js' %}"></script>
+    <!-- ======== IndexJS ======= -->
+    <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+</html>

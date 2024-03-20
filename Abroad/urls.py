@@ -32,6 +32,8 @@ urlpatterns = [
     path('', include('userextend.urls')),
     path('notes/',include('notes.urls')),
     path('utilities/', include('utilities.urls')),
+    path('',include('notes.urls')),
+#>>>>>>> parent of 20ef0a2 (update about, login views, notes app, scrips, css, God knows what else)
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

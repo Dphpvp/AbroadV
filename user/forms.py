@@ -81,17 +81,17 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = '__all__'  # in formular se vor regasi toate fieldurile in ordinea definita in models.py
 
-        # widgets = {
-        #     'first_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your first name'}),
-        #     'last_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your last name'}),
-        #     'age': NumberInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your age'}),
-        #     'email': EmailInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your email'}),
-        #     'description': Textarea(
-        #         attrs={'class': 'form-control', 'placeholder': 'Please enter your description', 'rows': 3}),
-        #     'start_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-        #     'end_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-        #     'gender': Select(attrs={'class': 'form-select'}),
-        #     'trainer': Select(attrs={'class': 'form-select'}),
-        # }
+        widgets = {
+            'first_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your first name'}),
+            'last_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your last name'}),
+            'age': NumberInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your age'}),
+            'email': EmailInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your email'}),
+            'description': Textarea(
+                attrs={'class': 'form-control', 'placeholder': 'Please enter your description', 'rows': 3}),
+            'start_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'end_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'gender': Select(attrs={'class': 'form-select'}),
+            'trainer': Select(attrs={'class': 'form-select'}),
+        }
 
 

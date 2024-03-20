@@ -29,9 +29,6 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     form_class = UserUpdateForm
     success_url = reverse_lazy('account-details')
 
-    def get_object(self, queryset=None):
-        return self.request.user
-
 
 class UserDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'user/delete_user.html'

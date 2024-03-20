@@ -1,0 +1,46 @@
+.login-card {
+    width: 35%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.card-header,
+.card-body,
+.card-footer {
+    background-color: transparent;
+}
+
+/* Style the input boxes */
+form input {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+/* Style the buttons */
+form button {
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the links */
+form a {
+    color: #ffc107;
+}
+
+
+form p {
+    color: black;
+    font-weight: bold;
+}
+

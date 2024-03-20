@@ -10,3 +10,6 @@ class UserHistory(models.Model):
         return self.message
 
 
+from django.db import models
+
+# Create your models here.
