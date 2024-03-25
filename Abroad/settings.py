@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-27e5yn^3ly)psz144+k)!hguqz%&dc#w+)yed-yho3_de30$6p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['abroadvoyager.com', 'abroadv-3.onrender.com']
+ALLOWED_HOSTS = ['abroadv-3.onrender.com','localhost','http://127.0.0.1:8000/']
 
 
 
@@ -125,10 +125,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-<<<<<<< HEAD
-=======
 
->>>>>>> b20bf1a55d96459626ec06882aafac729c7edd8a
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

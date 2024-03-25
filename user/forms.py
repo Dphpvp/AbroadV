@@ -32,8 +32,6 @@ class UserForm(forms.ModelForm):
             msg = 'Exista un user cu aceasta adresa de email'  # GENEREAM MESAJUL PENTRU AFISARE
             self._errors['email'] = self.error_class([msg])  # LOCALIZAM PE CEL FIELD VREM SA AFISAM MESAJUL ERORII
 
-        # Validare pentru start_date si end_date. Daca start_date > end_date atunci sa ii afisam o eroare
-
         get_start_date = cleaned_data['start_date']
         get_end_date = cleaned_data['end_date']
 
@@ -41,18 +39,14 @@ class UserForm(forms.ModelForm):
             msg = 'Data de sfarsit trebuie sa fie mai mare decat cea de start'
             self._errors['end_date'] = self.error_class([msg])
 
-        # O unicitate pe first_name si last_name. Nu trebuie sa existe un alt student cu acelasi first_name si last_name
-
         get_first_name = cleaned_data['first_name']
         get_last_name = cleaned_data['last_name']
 
         existing_user = User.objects.filter(first_name=get_first_name, last_name=get_last_name)
 
         if existing_user:
-            msg = 'Un student cu acel nume exista deja'
+            msg = 'Un user cu acel nume exista deja'
             self.errors['first_name'] = self.error_class([msg])
-
-        # O validare pe description, sa nu poata adauga un text mai mare de 50 de caractere
 
         get_description = cleaned_data['description']
 
@@ -93,5 +87,3 @@ class UserUpdateForm(forms.ModelForm):
             'gender': Select(attrs={'class': 'form-select'}),
             'trainer': Select(attrs={'class': 'form-select'}),
         }
-
-
